@@ -1,8 +1,15 @@
 #!/bin/bash
 ps aux|grep "I2NvZGluZzogdXRmLTg"|grep -v grep|awk '{print $2}'|xargs kill -9
 
+chattr -i /etc/cron.d/root
+chattr -i /etc/cron.d/system
+chattr -i /etc/cron.d/apache
+chattr -i /var/spool/cron/root
+chattr -i /var/spool/cron/crontabs/root
+
 echo "" > /etc/cron.d/root
 echo "" > /etc/cron.d/system
+echo "" > /etc/cron.d/apache
 echo "" > /var/spool/cron/root
 echo "" > /var/spool/cron/crontabs/root
 rm -rf /etc/cron.hourly/oanacron

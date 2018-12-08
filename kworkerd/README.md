@@ -1,5 +1,7 @@
 # kworkerd
 2018.8 通过redis等途径入侵传播，solvethis.sh为清除脚本
+2018.12 update   use:https://github.com/SYSTEMFOUR
+
 
 
 ### pastebin.com_raw_5bjpjvLP:

