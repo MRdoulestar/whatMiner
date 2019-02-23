@@ -36,3 +36,6 @@ c. rm -f /usr/sbin/watchdogs /etc/init.d/watchdogs
 9、部分操作需要重启机器生效。
 ```
 
+### 细节参考
+https://mp.weixin.qq.com/s/dwY--BLzcyeXqPUZlhb__Q
+
